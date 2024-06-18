@@ -1,0 +1,416 @@
+body{
+    min-width: 500px;
+    overflow: auto;
+    margin: 0;
+    height: 100%;
+    background-color: #8899C6;
+}
+
+#ss-body{
+  background-color: whitesmoke;
+}
+
+#ss-header{
+  width: 100%;
+  display: inline-block;
+}
+
+#ss-kontent{
+  margin: 0px 10% 0px;
+  font-family: Apple Chancery, cursive;
+  color: black;
+}
+
+#authors{
+  text-align: right;
+}
+
+#ss-logo{
+  width: 100%;
+  height: 75%;
+  transition: opacity 0.4s;
+}
+
+#ss-logo-kontener{
+  top: 50px;
+  position: relative;
+  margin-bottom: 75vh;
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+#kk-header{
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    box-shadow: inset 0 -8px 10px 0px #D4CCBB;
+    background-color: #FFF7E6;
+}
+
+
+nav{
+    width: 100%;
+}
+
+nav > a{
+    display: inline-block;
+}
+
+#kk-logo{
+    font-size: 300%;
+    width: 17.5%;
+    height: 7%;
+}
+#kk-logo:hover{
+  cursor: pointer;
+}
+
+#filtered{
+    position:fixed;
+    left: calc(95% - 50px);
+    top: 45px;
+}
+
+#filtered > img{
+    height: 55px;
+    width: 50px;
+}
+
+/*-----------------------MENU--------------------------------*/
+.menu-container {
+    position: relative;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0px; /* Przesunięcie menu w dół o wysokość nagłówka */
+    left: -250px; /* Initially hide the menu */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: left 0.3s ease; /* Add transition for smooth animation */
+    z-index: 1100; /* Wyższy z-index, aby menu było na górze */
+}
+  
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+    top: 20px;
+  }
+  
+  .menu ul li {
+    padding: 10px;
+  }
+  
+  .menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  
+  #menu-icon {
+    position: fixed;
+    left: 5%;
+    top: 45px;
+    font-size: 40px;
+    cursor: pointer;
+    color: black;
+    z-index: 999; /* Ensure the icon is on top of the menu */
+  }
+/*----------------------------------------------------------*/
+
+/*-----------------------SEARCH BAR-----------------------------------*/
+.search-container {
+    position: fixed;
+    left: calc(95% - 275px);
+    width: 200px;
+    margin-top: 15px;
+    top: 50px;
+}
+  
+.search-container input[type="text"] {
+    font-size: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #343044;
+    padding: 5px 0;
+    background-color: transparent;
+    outline: none;
+}
+  
+.search-container .label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 18px;
+    color: black;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+  
+  .search-container input[type="text"]:focus ~ .label,
+  .search-container input[type="text"]:valid ~ .label {
+    top: -20px;
+    font-size: 18px;
+    color: #333;
+}
+  
+.search-container .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #333;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+  
+.search-container input[type="text"]:focus ~ .underline,
+.search-container input[type="text"]:valid ~ .underline {
+    transform: scaleX(1);
+}
+
+/*-----------------------POP UP-----------------------------------*/
+.popup {
+    width: 400px;
+    background-color: #fefefe;
+    border-radius: 9px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 20px;
+    z-index: 1300;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.open-popup{
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover{
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* ----------------------------------------------------------------- */
+
+/* --------------------------DARK MODE----------------------------- */
+.toggle-switch {
+  position: fixed;
+  left: 82.75%;
+  width: 100px;
+  height: 50px;
+  --light: #d8dbe0;
+  --dark: #28292c;
+  --link: rgb(27, 129, 112);
+  --link-hover: rgb(24, 94, 82);
+  top: 45px; /* Adjusted to move the toggle switch 45px from the top */
+}
+
+.switch-label {
+  position: fixed;
+  right: 10%;
+  top: 42px; /* Resetting to 0 as the top position is managed by the .toggle-switch container */
+  width: 100px;
+  height: 50px;
+  background-color: var(--dark);
+  border-radius: 25px;
+  cursor: pointer;
+  border: 3px solid var(--dark);
+}
+
+.checkbox {
+  position: fixed;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider {
+  background-color: var(--light);
+}
+
+.slider::before {
+  content: "";
+  position: fixed;
+  top: 55px;
+  right: calc(10% + 65px);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
+  box-shadow: inset 12px -4px 0px 0px var(--light);
+  background-color: var(--dark);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider::before {
+  -webkit-transform: translateX(50px);
+  -ms-transform: translateX(50px);
+  transform: translateX(50px);
+  background-color: var(--dark);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/* --------------------------------------------------------------- */
+
+/* -------------ENLARGED INFO BOX----------------------------------*/
+.info {
+  display: none;
+  position: absolute;
+  text-align: center;
+  background-color:rgba(243, 243, 243, 0.959);
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  margin: auto;
+  padding: 0 0 10px 0;
+}
+
+.info > h2{
+  position: relative;
+  top: 0;
+}
+
+.info > img{
+  height: 50vh;
+  width: 75vh;
+}
+
+.container-item > img {
+  margin-top: 10px;
+  width: 50%;
+  max-height: 200px;
+}
+
+.content-container{
+  margin: 150px 5% 0px;
+  background-color: #AFBDE1;
+  box-shadow: 5px 0px 15px #7383B0, -5px 0px 50px #7383B0;
+  text-align: center;
+  padding: 15px 10px 0px;
+}
+
+.container-item{
+min-width: 350px;
+border-radius: 9px;
+background-color: #ffffff;
+width: 32%;
+height: 300px;
+display: inline-block;
+margin: 10px 5px;
+}
+
+/* ---------------------DATA URODZIN----------------------------- */
+#ku-body{
+  background-color: whitesmoke;
+}
+
+#ku-logo {
+  position: fixed;
+  top: 50px;
+  left: calc(50% - 100px);
+  font-size: 300%;
+  width: 200px;
+}
+
+#ku-logo:hover{
+cursor: pointer;
+}
+
+.ku-container {
+  position: relative;
+  top: 100px;
+  width: 400px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+}
+
+#ku-content{
+  text-align: center;
+  top: 300px;
+  position: relative;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+input[type="number"] {
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+select {
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+input[type="submit"], button[type="button"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover, button[type="button"]:hover {
+  background-color: #45a049;
+}
